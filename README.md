@@ -5,4 +5,4 @@
 
 Выполнить в терминале:
 - composer install
-- php vendor/bin/codecept run --steps
+- php vendor/bin/codecept run acceptance --steps
