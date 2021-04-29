@@ -1,0 +1,12 @@
+version: '3'
+services:
+  codecept:
+    image: codeception/codeception
+    depends_on:
+      - chrome
+    links:
+      - chrome
+    volumes:
+      - .:/project
+  chrome:
+    image: selenium/standalone-chrome:90.0

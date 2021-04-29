@@ -9,16 +9,12 @@ modules:
     enabled:
         - \Helper\Acceptance
         - WebDriver:
-              url: 'https://yandex.ru'
-              window_size: false
-              port: 9515
-              browser: chrome
-              capabilities:
-                  chromeOptions:
-                      args: [ "--headless", "--disable-gpu" ]
-extensions:
-    enabled:
-        - Codeception\Extension\RunProcess:
-              0: chromedriver --url-base=wd/hub
-              sleep: 1
+    config:
+      WebDriver:
+        url: 'https://yandex.ru'
+        window_size: false
+        browser: chrome
+        capabilities:
+            chromeOptions:
+                args: [ "--headless", "--disable-gpu" ]
 step_decorators: ~        

@@ -10,6 +10,8 @@ class Video
 
     public static $firstPreview = '//div[contains(@class,"thumb-image__preview")][1]';
 
+    public static $firstPreviewVideo = '//div[contains(@class,"thumb-image__preview")][1]/video';
+
     public static function route($param): string
     {
         return static::$URL.$param;

@@ -1,5 +1,7 @@
 <?php
 
+use Facebook\WebDriver\WebDriverElement;
+
 
 /**
  * Inherited Methods
@@ -23,4 +25,12 @@ class AcceptanceTester extends \Codeception\Actor
     /**
      * Define custom actions here
      */
+    public function seeVideoIsPlaying($cssOrXPath)
+    {
+        $startTime = $this->grabAttributeFrom($cssOrXPath, 'currentTime');
+        $this->waitForElementChange($cssOrXPath, function (WebDriverElement $el) use ($startTime) {
+            $currentTime = $el->getAttribute('currentTime');
+            return $startTime !== $currentTime;
+        }, 2);
+    }
 }
