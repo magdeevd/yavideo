@@ -4,9 +4,11 @@ services:
     image: codeception/codeception
     depends_on:
       - chrome
-    links:
-      - chrome
     volumes:
       - .:/project
+    entrypoint: ["./wait-for-selenium.sh", "codecept"]
+
   chrome:
     image: selenium/standalone-chrome:90.0
+    ports:
+    - 4444:4444
